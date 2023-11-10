@@ -65,7 +65,7 @@ const App = () => {
 
   const getWeather = async () => {
     const response = await axios.get(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=92dbeba909186bb7e4d75ae217b3cf0f&units=metric`
+      `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${process.env.REACT_APP_WEATHER_KEY}&units=metric`
     );
 
     setWeatherData(response.data);
@@ -80,6 +80,10 @@ const App = () => {
     if (!latitude || !longitude) return;
     getWeather();
   }, [latitude, longitude]);
+
+  useEffect(() => {
+    console.log(process.env.REACT_APP_WEATHER_KEY);
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col justify-center items-center text-2xl">
