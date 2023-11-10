@@ -95,7 +95,7 @@ const App = () => {
         >
           {weatherIcon[weatherData.weather[0].icon.substring(0, 2)].icon}
           <div>
-            {weatherData.name}, {weatherData.main.temp}
+            {weatherData.name}, {weatherData.main.temp}℃
           </div>
         </div>
       ) : (
